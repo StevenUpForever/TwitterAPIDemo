@@ -7,9 +7,11 @@
 //
 
 #import "MainViewController.h"
-#import "TwitterStreamingManager.h"
+#import "MainViewModel.h"
 
 @interface MainViewController ()
+
+@property (nonatomic) MainViewModel *viewModel;
 
 @end
 
@@ -17,7 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
+    
+    self.viewModel = [[MainViewModel alloc]init];
+    [self.viewModel checkTwitterAvailableWithCallBack:^(BOOL success, NSString *errorMessage) {
+        if (!success) {
+            [
+        }
+    }];
+//    [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
     
 }
 

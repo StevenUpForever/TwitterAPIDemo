@@ -10,6 +10,7 @@
 #import "TwitterStreamingConfiguration.h"
 
 @class StreamingTweetModel;
+@class TWTRSession;
 @protocol StreamingAPIDelegate <NSObject>
 
 @optional
@@ -22,9 +23,14 @@
 
 @property (weak, nonatomic) id<StreamingAPIDelegate> streamingDelegate;
 
+@property (nonatomic, copy, readonly) NSString *userID;
+@property (nonatomic, copy, readonly) NSString *userName;
+
 @property (nonatomic) TwitterStreamingConfiguration *configuration;
 
-+ (void)checkTwitterAccountAvailabilityWithSuccessHandler: (void(^)(BOOL loggedIn, NSArray *accountArray))successHandler failureHandler: (void(^)(NSString *errorMessage))failureHandler;
++ (TwitterStreamingManager *)sharedManager;
+
+- (void)loadTWTRSession: (TWTRSession *)session;
 
 - (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type;
 

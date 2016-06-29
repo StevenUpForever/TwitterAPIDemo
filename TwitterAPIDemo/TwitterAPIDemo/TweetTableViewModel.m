@@ -44,8 +44,8 @@
                 [mutableArray addObject:tweet];
             }
             self.tweetArray = mutableArray;
-            NSLog(@"%@", tweet);
-            NSLog(@"%@", model.idStr);
+//            NSLog(@"%@", tweet);
+//            NSLog(@"%@", model.idStr);
         }];
     }
 }

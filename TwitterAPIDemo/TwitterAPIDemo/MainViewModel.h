@@ -10,4 +10,6 @@
 
 @interface MainViewModel : NSObject
 
+- (void)checkTwitterAvailableWithCallBack: (void(^)(BOOL success, NSString *errorMessage))callback;
+
 @end
