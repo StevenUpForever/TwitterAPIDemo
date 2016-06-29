@@ -45,6 +45,7 @@
             if (accountArray.count > 0) {
                 
                 ACAccount *account = [accountArray lastObject];
+//                NSLog(@"%@", account.userFullName);
                 SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
                 [request setAccount:account];
                 NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
@@ -61,7 +62,7 @@
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"%@", dict);
+//    NSLog(@"%@", dict);
     StreamingTweetModel *model = [[StreamingTweetModel alloc]init];
     [model loadTweetObject:dict];
     if ([self.streamingDelegate respondsToSelector:@selector(didReceiveModelData:)]) {

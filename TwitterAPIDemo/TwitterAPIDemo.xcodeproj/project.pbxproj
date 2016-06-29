@@ -226,6 +226,7 @@
 				TargetAttributes = {
 					AFDB8EA31D23554A00EEA3B1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 78A73LK6Q3;
 					};
 					AFDB8EBF1D23554A00EEA3B1 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -461,6 +462,8 @@
 			baseConfigurationReference = C0C7442D70A429FC71B0E57E /* Pods-TwitterAPIDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = TwitterAPIDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -474,6 +477,7 @@
 			baseConfigurationReference = E8E05D20A38D56C6BDFB40FE /* Pods-TwitterAPIDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TwitterAPIDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

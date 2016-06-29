@@ -29,19 +29,25 @@
 - (void)beginReceivingData {
     TwitterStreamingAPIManager *manager = [[TwitterStreamingAPIManager alloc]init];
     manager.streamingDelegate = self;
-    NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"girl" locations:nil delimited:NO warnings:NO];
-    [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIUserStreams];
+    NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"NBA" locations:nil delimited:NO warnings:NO];
+    [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];
 }
 
+#pragma mark - StreamingAPIDelegate
+
 - (void)didReceiveModelData:(StreamingTweetModel *)model {
-    TWTRAPIClient *client = [[TWTRAPIClient alloc]init];
-    [client loadTweetWithID:model.idStr completion:^(TWTRTweet * _Nullable tweet, NSError * _Nullable error) {
-        NSMutableArray<TWTRTweet *> *mutableArray = [self.tweetArray mutableCopy];
-        if (tweet) {
-            [mutableArray addObject:tweet];
-        }
-        self.tweetArray = mutableArray;
-    }];
+    TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
+    if (model.idStr) {
+        [client loadTweetWithID:model.idStr completion:^(TWTRTweet * _Nullable tweet, NSError * _Nullable error) {
+            NSMutableArray<TWTRTweet *> *mutableArray = [self.tweetArray mutableCopy];
+            if (tweet) {
+                [mutableArray addObject:tweet];
+            }
+            self.tweetArray = mutableArray;
+            NSLog(@"%@", tweet);
+            NSLog(@"%@", model.idStr);
+        }];
+    }
 }
 
 @end

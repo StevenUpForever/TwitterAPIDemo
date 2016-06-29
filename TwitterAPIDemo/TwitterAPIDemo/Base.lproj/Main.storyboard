@@ -19,7 +19,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cjh-Ol-66a"/>
                     <connections>
-                        <segue destination="H2s-AZ-Wg6" kind="show" identifier="showTweets" id="snP-CJ-xaV"/>
+                        <segue destination="H2s-AZ-Wg6" kind="show" identifier="TWTRAPIClient" id="snP-CJ-xaV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

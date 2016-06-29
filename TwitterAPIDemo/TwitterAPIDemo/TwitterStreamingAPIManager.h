@@ -14,6 +14,7 @@
 
 @optional
 - (void)didFailedConnectToTwitter: (NSString *)errorMessage error: (NSError *)error;
+
 - (void)didReceiveModelData: (StreamingTweetModel *)model;
 
 @end

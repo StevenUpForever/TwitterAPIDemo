@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self performSegueWithIdentifier:@"showTweets" sender:self];
+    [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
     
     
 }
