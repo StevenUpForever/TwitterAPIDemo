@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomViewController : UIAlertController
+@interface CustomAlertController : UIAlertController
+
++ (void)showCancelAlertController: (NSString *)title message: (NSString *)message target: (__kindof UIViewController *)target;
 
 @end

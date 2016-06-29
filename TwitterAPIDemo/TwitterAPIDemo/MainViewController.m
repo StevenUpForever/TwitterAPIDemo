@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "MainViewModel.h"
+#import "CustomAlertController.h"
 
 @interface MainViewController ()
 
@@ -23,10 +24,11 @@
     self.viewModel = [[MainViewModel alloc]init];
     [self.viewModel checkTwitterAvailableWithCallBack:^(BOOL success, NSString *errorMessage) {
         if (!success) {
-            [
+            [CustomAlertController showCancelAlertController:@"error" message:errorMessage target:self];
+        } else {
+            [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
         }
     }];
-//    [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
     
 }
 

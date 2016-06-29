@@ -26,7 +26,7 @@
 		AFDB8EED1D24542F00EEA3B1 /* TwitterStreamingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EEC1D24542F00EEA3B1 /* TwitterStreamingManager.m */; };
 		AFDB8EF01D24596300EEA3B1 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EEF1D24596300EEA3B1 /* MainViewModel.m */; };
 		AFDB8EF31D245D7800EEA3B1 /* TwitterSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */; };
-		AFDB8EF61D2461A600EEA3B1 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EF51D2461A600EEA3B1 /* CustomViewController.m */; };
+		AFDB8EF61D2461A600EEA3B1 /* CustomAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EF51D2461A600EEA3B1 /* CustomAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +72,8 @@
 		AFDB8EEF1D24596300EEA3B1 /* MainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
 		AFDB8EF11D245D7800EEA3B1 /* TwitterSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterSessionManager.h; sourceTree = "<group>"; };
 		AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterSessionManager.m; sourceTree = "<group>"; };
-		AFDB8EF41D2461A600EEA3B1 /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
-		AFDB8EF51D2461A600EEA3B1 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
+		AFDB8EF41D2461A600EEA3B1 /* CustomAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertController.h; sourceTree = "<group>"; };
+		AFDB8EF51D2461A600EEA3B1 /* CustomAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertController.m; sourceTree = "<group>"; };
 		C0C7442D70A429FC71B0E57E /* Pods-TwitterAPIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterAPIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterAPIDemo/Pods-TwitterAPIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E05D20A38D56C6BDFB40FE /* Pods-TwitterAPIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterAPIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterAPIDemo/Pods-TwitterAPIDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +136,8 @@
 			children = (
 				AFDB8EAA1D23554A00EEA3B1 /* AppDelegate.h */,
 				AFDB8EAB1D23554A00EEA3B1 /* AppDelegate.m */,
-				AFDB8EF41D2461A600EEA3B1 /* CustomViewController.h */,
-				AFDB8EF51D2461A600EEA3B1 /* CustomViewController.m */,
+				AFDB8EF41D2461A600EEA3B1 /* CustomAlertController.h */,
+				AFDB8EF51D2461A600EEA3B1 /* CustomAlertController.m */,
 				AFDB8EAD1D23554A00EEA3B1 /* MainViewController.h */,
 				AFDB8EAE1D23554A00EEA3B1 /* MainViewController.m */,
 				AFDB8EEE1D24596300EEA3B1 /* MainViewModel.h */,
@@ -347,7 +347,7 @@
 				AFDB8EF01D24596300EEA3B1 /* MainViewModel.m in Sources */,
 				AFDB8EB51D23554A00EEA3B1 /* TwitterAPIDemo.xcdatamodeld in Sources */,
 				AFDB8EAC1D23554A00EEA3B1 /* AppDelegate.m in Sources */,
-				AFDB8EF61D2461A600EEA3B1 /* CustomViewController.m in Sources */,
+				AFDB8EF61D2461A600EEA3B1 /* CustomAlertController.m in Sources */,
 				AFDB8EED1D24542F00EEA3B1 /* TwitterStreamingManager.m in Sources */,
 				AFDB8EE31D23AD0E00EEA3B1 /* TweetTableViewController.m in Sources */,
 				AFDB8EA91D23554A00EEA3B1 /* main.m in Sources */,
