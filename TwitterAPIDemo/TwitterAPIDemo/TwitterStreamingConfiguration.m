@@ -47,9 +47,9 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
     return parameters;
 }
 
-- (NSURLRequest *)createURLRequestWithParameters: (NSDictionary *)parameters type: (streamingAPIType)type {
+- (NSURLRequest *)createURLRequest {
     NSString *urlStr;
-    switch (type) {
+    switch (self.sourceType) {
         case streamingAPIPublicFilter:
             urlStr = kStreamingPulicFilter;
             break;
@@ -62,11 +62,11 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
     NSURL *url = [NSURL URLWithString:urlStr];
     
     SLRequest *request;
-    if (type == streamingAPIPublicFilter) {
+    if (self.sourceType == streamingAPIPublicFilter) {
         request = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                      requestMethod:SLRequestMethodPOST
                                                URL:url
-                                        parameters:parameters];
+                                        parameters:self.parameters];
     } else {
         request = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                      requestMethod:SLRequestMethodGET

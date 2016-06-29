@@ -21,6 +21,6 @@ typedef NS_ENUM(NSUInteger, streamingAPIType) {
 
 + (NSDictionary *)postParameterWithFollow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations;
 
-- (NSURLRequest *)createURLRequestWithParameters: (NSDictionary *)parameters type: (streamingAPIType)type;
+- (NSURLRequest *)createURLRequest;
 
 @end

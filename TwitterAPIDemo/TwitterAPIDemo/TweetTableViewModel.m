@@ -31,8 +31,7 @@
 }
 
 - (void)beginReceivingData {
-    NSDictionary *parameters = [self.manager.configuration postParameterWithFollow:nil track:@"asian" locations:nil delimited:NO warnings:NO];
-    [self.manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];
+    [self.manager createStreamingConnectionToTwitter];
 }
 
 - (void)stopReceivingData {

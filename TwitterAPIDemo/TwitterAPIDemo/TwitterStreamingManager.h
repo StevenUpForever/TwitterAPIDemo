@@ -28,6 +28,6 @@
 
 - (void)cancelSession;
 
-- (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type;
+- (void)createStreamingConnectionToTwitter;
 
 @end

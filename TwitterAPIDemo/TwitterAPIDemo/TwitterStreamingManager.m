@@ -38,36 +38,9 @@
     return self;
 }
 
-- (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type {
-//    ACAccountStore *store = [[ACAccountStore alloc]init];
-//    ACAccountType *twitterAccountType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-//    
-//    [store requestAccessToAccountsWithType:twitterAccountType options:nil completion:^(BOOL granted, NSError *error) {
-//        if (error) {
-//            
-//        } else if (!granted) {
-//            
-//            if ([self.streamingDelegate respondsToSelector:@selector(didFailedConnectToTwitter:error:)]) {
-//                [self.streamingDelegate didFailedConnectToTwitter:@"Twitter access not granted" error:nil];
-//            }
-//            
-//        } else {
-//            NSArray *accountArray = [store accountsWithAccountType:twitterAccountType];
-//            if (accountArray.count > 0) {
-//                
-//                ACAccount *account = [accountArray lastObject];
-//                //                NSLog(@"%@", account.userFullName);
-//                SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
-//                [request setAccount:account];
-//                self.dataTask = [self.session dataTaskWithRequest:[request preparedURLRequest]];
-//                [self.dataTask resume];
-//            } else {
-//                if ([self.streamingDelegate respondsToSelector:@selector(didFailedConnectToTwitter:error:)]) {
-//                    [self.streamingDelegate didFailedConnectToTwitter:@"No Twitter account available" error:nil];
-//                }
-//            }
-//        }
-//    }];
+- (void)createStreamingConnectionToTwitter {
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:[self.configuration createURLRequest]];
+    [dataTask resume];
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
