@@ -247,8 +247,8 @@
 		AFDB8F051D2479E200EEA3B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */,
 				AFDB8EF11D245D7800EEA3B1 /* TwitterSessionManager.h */,
+				AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

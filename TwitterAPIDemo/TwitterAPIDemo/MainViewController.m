@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *followTextField;
 @property (weak, nonatomic) IBOutlet UITextField *trackTextField;
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -30,6 +31,7 @@
     
     self.viewModel = [[MainViewModel alloc]init];
     [self viewModelCheckTwitterAndLogin:NO];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +41,20 @@
 - (IBAction)submitAction:(CustomButton *)sender {
     [self viewModelCheckTwitterAndLogin:YES];
 }
+
+#pragma mark - Selectors
+
+- (IBAction)sourceLabelTap:(UITapGestureRecognizer *)sender {
+    [CustomAlertController showActionSheetWithTitle:nil message:@"Choose URL Source" contents:@[@"Public API with filter", @"Public API with Samples", @"Authorized user API"] action:^(UIAlertAction *action) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.sourceLabel.text = action.title;
+            self.containerView.hidden = ![self.sourceLabel.text isEqualToString:@"Public API with filter"];
+        });
+        
+    } target:self];
+}
+
 
 #pragma mark - private methods
 
@@ -51,7 +67,7 @@
         } else {
             if (login) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    
+                    [self.viewModel createStreamingManagerConfigurationWithSourceTitle:self.sourceLabel.text follow:self.followTextField.text track:self.trackTextField.text locations:self.locationTextField.text];
                     [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
                 });
             }

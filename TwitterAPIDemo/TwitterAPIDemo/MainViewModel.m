@@ -11,17 +11,35 @@
 #import "TwitterSessionManager.h"
 #import "TwitterStreamingManager.h"
 
+@interface MainViewModel()
+
+@property (nonatomic) TwitterStreamingManager *streamingManager;
+
+@property (nonatomic) ACAccount *account;
+
+@end
+
 @implementation MainViewModel
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _streamingManager = [TwitterStreamingManager sharedManager];
+    }
+    return self;
+}
 
 - (void)checkTwitterAvailableWithCallBack: (void(^)(BOOL success, NSString *errorMessage))callback {
     [TwitterSessionManager checkTwitterAccountAvailabilityWithSuccessHandler:^(BOOL loggedIn, NSArray *accountArray) {
         if (!loggedIn) {
             Twitter *twitter = [Twitter sharedInstance];
             [twitter logInWithCompletion:^(TWTRSession * _Nullable session, NSError * _Nullable error) {
-                TwitterStreamingManager *streamingManager = [TwitterStreamingManager sharedManager];
                 if (session) {
-                    [streamingManager loadTWTRSession:session];
                     if (callback) {
+                        if (accountArray.count > 0) {
+                            self.account = accountArray.lastObject;
+                        }
                         callback(YES, nil);
                     }
                 } else {
@@ -32,6 +50,9 @@
             }];
         } else {
             if (callback) {
+                if (accountArray.count > 0) {
+                    self.account = accountArray.lastObject;
+                }
                 callback(YES, nil);
             }
         }
@@ -43,6 +64,21 @@
     }];
 }
 
+- (void)createStreamingManagerConfigurationWithSourceTitle: (NSString *)title follow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations {
+    NSDictionary *parameters = [TwitterStreamingConfiguration postParameterWithFollow:follow track:track locations:locations];
+    self.streamingManager.configuration = [[TwitterStreamingConfiguration alloc]initWithType:[self SourceURLChooseWithTitle:title] parameters:parameters account:self.account];
+}
 
+#pragma mark - private methods
+
+- (streamingAPIType)SourceURLChooseWithTitle: (NSString *)title {
+    if ([title isEqualToString:@"Public API with filter"]) {
+        return streamingAPIPublicFilter;
+    } else if ([title isEqualToString:@"Public API with Samples"]) {
+        return streamingAPIPublicSample;
+    } else {
+       return streamingAPIUserStreams;
+    }
+}
 
 @end

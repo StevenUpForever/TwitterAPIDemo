@@ -27,8 +27,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public API with filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-mr-VLF" customClass="CustomLabel">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public API with filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-mr-VLF" customClass="CustomLabel">
                                 <rect key="frame" x="119" y="72" width="461" height="40"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nkB-jk-WLV"/>
                                 </constraints>
@@ -43,6 +44,9 @@
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nCK-ja-90G" appends="YES" id="o60-0n-DUt"/>
+                                </connections>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cl0-Gk-Apq">
                                 <rect key="frame" x="20" y="120" width="560" height="300"/>
@@ -139,6 +143,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cjh-Ol-66a"/>
                     <connections>
+                        <outlet property="containerView" destination="Cl0-Gk-Apq" id="KvZ-IV-LlB"/>
                         <outlet property="followTextField" destination="mqM-h5-5cO" id="eL0-NH-2Ei"/>
                         <outlet property="locationTextField" destination="MmQ-ZS-lTy" id="ers-fb-iNu"/>
                         <outlet property="sourceLabel" destination="ThC-mr-VLF" id="PIi-AV-aV1"/>
@@ -147,6 +152,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nCK-ja-90G">
+                    <connections>
+                        <action selector="sourceLabelTap:" destination="BYZ-38-t0r" id="MV5-ez-3dd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1987" y="-452"/>
         </scene>

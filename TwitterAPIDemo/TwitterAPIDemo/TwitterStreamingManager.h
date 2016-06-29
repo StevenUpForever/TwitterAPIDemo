@@ -22,14 +22,9 @@
 
 @property (weak, nonatomic) id<StreamingAPIDelegate> streamingDelegate;
 
-@property (nonatomic, copy, readonly) NSString *userID;
-@property (nonatomic, copy, readonly) NSString *userName;
-
 @property (nonatomic) TwitterStreamingConfiguration *configuration;
 
 + (TwitterStreamingManager *)sharedManager;
-
-- (void)loadTWTRSession: (TWTRSession *)session;
 
 - (void)cancelSession;
 

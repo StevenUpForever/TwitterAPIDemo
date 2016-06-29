@@ -14,23 +14,27 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
 
 @interface TwitterStreamingConfiguration()
 
+@property (nonatomic, assign) streamingAPIType sourceType;
+@property (nonatomic, copy) NSDictionary *parameters;
+@property (nonatomic) ACAccount *account;
+
 @end
 
 @implementation TwitterStreamingConfiguration
 
-- (NSDictionary *)getParameterWithDelimited: (BOOL)delimited warnings: (BOOL)warnings {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-    if (delimited) {
-        [parameters setObject:@"length" forKey:@"delimited"];
+- (instancetype)initWithType: (streamingAPIType)type parameters: (NSDictionary *)parameters account: (ACAccount *)account
+{
+    self = [super init];
+    if (self) {
+        _sourceType = type;
+        _parameters = parameters;
+        _account = account;
     }
-    if (warnings) {
-        [parameters setObject:@"true" forKey:@"stall_warnings"];
-    }
-    return parameters;
+    return self;
 }
 
-- (NSDictionary *)postParameterWithFollow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations delimited: (BOOL)delimited warnings: (BOOL)warnings {
-    NSMutableDictionary *parameters = [[self getParameterWithDelimited:delimited warnings:warnings] mutableCopy];
++ (NSDictionary *)postParameterWithFollow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     if (follow) {
         [parameters setObject:[follow stringByReplacingOccurrencesOfString:@" " withString:@""] forKey:@"follow"];
     }
@@ -43,29 +47,34 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
     return parameters;
 }
 
-- (SLRequest *)createURLRequestWithParameters: (NSDictionary *)parameters type: (streamingAPIType)type {
+- (NSURLRequest *)createURLRequestWithParameters: (NSDictionary *)parameters type: (streamingAPIType)type {
     NSString *urlStr;
-    SLRequestMethod requestMethod;
     switch (type) {
         case streamingAPIPublicFilter:
             urlStr = kStreamingPulicFilter;
-            requestMethod = SLRequestMethodPOST;
             break;
         case streamingAPIPublicSample:
             urlStr = kStreamingPublicSample;
-            requestMethod = SLRequestMethodGET;
         default:
             urlStr = kStreamingUserStreams;
-            requestMethod = SLRequestMethodGET;
             break;
     }
     NSURL *url = [NSURL URLWithString:urlStr];
     
-    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
-                                            requestMethod:requestMethod
-                                                      URL:url
-                                               parameters:parameters];
-    return request;
+    SLRequest *request;
+    if (type == streamingAPIPublicFilter) {
+        request = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                     requestMethod:SLRequestMethodPOST
+                                               URL:url
+                                        parameters:parameters];
+    } else {
+        request = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                     requestMethod:SLRequestMethodGET
+                                               URL:url
+                                        parameters:nil];
+    }
+    [request setAccount:self.account];
+    return [request preparedURLRequest];
 }
 
 @end

@@ -17,10 +17,10 @@ typedef NS_ENUM(NSUInteger, streamingAPIType) {
 
 @interface TwitterStreamingConfiguration : NSObject
 
-- (NSDictionary *)getParameterWithDelimited: (BOOL)delimited warnings: (BOOL)warnings;
+- (instancetype)initWithType: (streamingAPIType)type parameters: (NSDictionary *)parameters account: (ACAccount *)account;
 
-- (NSDictionary *)postParameterWithFollow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations delimited: (BOOL)delimited warnings: (BOOL)warnings;
++ (NSDictionary *)postParameterWithFollow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations;
 
-- (SLRequest *)createURLRequestWithParameters: (NSDictionary *)parameters type: (streamingAPIType)type;
+- (NSURLRequest *)createURLRequestWithParameters: (NSDictionary *)parameters type: (streamingAPIType)type;
 
 @end
