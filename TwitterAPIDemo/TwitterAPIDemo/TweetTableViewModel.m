@@ -13,6 +13,8 @@
 
 @interface TweetTableViewModel()<StreamingAPIDelegate>
 
+@property (nonatomic) TwitterStreamingManager *manager;
+
 @end
 
 @implementation TweetTableViewModel
@@ -22,15 +24,19 @@
     self = [super init];
     if (self) {
         _tweetArray = [[NSArray alloc]init];
+        _manager = [TwitterStreamingManager sharedManager];
+        _manager.streamingDelegate = self;
     }
     return self;
 }
 
 - (void)beginReceivingData {
-    TwitterStreamingManager *manager = [[TwitterStreamingManager alloc]init];
-    manager.streamingDelegate = self;
-    NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"girl" locations:nil delimited:NO warnings:NO];
-    [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];
+    NSDictionary *parameters = [self.manager.configuration postParameterWithFollow:nil track:@"asian" locations:nil delimited:NO warnings:NO];
+    [self.manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];
+}
+
+- (void)stopReceivingData {
+    [self.manager cancelSession];
 }
 
 #pragma mark - StreamingAPIDelegate
@@ -44,7 +50,7 @@
                 [mutableArray addObject:tweet];
             }
             self.tweetArray = mutableArray;
-//            NSLog(@"%@", tweet);
+            NSLog(@"%@", tweet);
 //            NSLog(@"%@", model.idStr);
         }];
     }

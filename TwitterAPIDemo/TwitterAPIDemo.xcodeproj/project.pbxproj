@@ -27,6 +27,8 @@
 		AFDB8EF01D24596300EEA3B1 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EEF1D24596300EEA3B1 /* MainViewModel.m */; };
 		AFDB8EF31D245D7800EEA3B1 /* TwitterSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */; };
 		AFDB8EF61D2461A600EEA3B1 /* CustomAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EF51D2461A600EEA3B1 /* CustomAlertController.m */; };
+		AFDB8EF91D24703E00EEA3B1 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EF81D24703E00EEA3B1 /* CustomButton.m */; };
+		AFDB8EFC1D24705300EEA3B1 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EFB1D24705300EEA3B1 /* CustomLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,10 @@
 		AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterSessionManager.m; sourceTree = "<group>"; };
 		AFDB8EF41D2461A600EEA3B1 /* CustomAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertController.h; sourceTree = "<group>"; };
 		AFDB8EF51D2461A600EEA3B1 /* CustomAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertController.m; sourceTree = "<group>"; };
+		AFDB8EF71D24703E00EEA3B1 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		AFDB8EF81D24703E00EEA3B1 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		AFDB8EFA1D24705300EEA3B1 /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		AFDB8EFB1D24705300EEA3B1 /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		C0C7442D70A429FC71B0E57E /* Pods-TwitterAPIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterAPIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterAPIDemo/Pods-TwitterAPIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E05D20A38D56C6BDFB40FE /* Pods-TwitterAPIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterAPIDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterAPIDemo/Pods-TwitterAPIDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +144,10 @@
 				AFDB8EAB1D23554A00EEA3B1 /* AppDelegate.m */,
 				AFDB8EF41D2461A600EEA3B1 /* CustomAlertController.h */,
 				AFDB8EF51D2461A600EEA3B1 /* CustomAlertController.m */,
+				AFDB8EF71D24703E00EEA3B1 /* CustomButton.h */,
+				AFDB8EF81D24703E00EEA3B1 /* CustomButton.m */,
+				AFDB8EFA1D24705300EEA3B1 /* CustomLabel.h */,
+				AFDB8EFB1D24705300EEA3B1 /* CustomLabel.m */,
 				AFDB8EAD1D23554A00EEA3B1 /* MainViewController.h */,
 				AFDB8EAE1D23554A00EEA3B1 /* MainViewController.m */,
 				AFDB8EEE1D24596300EEA3B1 /* MainViewModel.h */,
@@ -343,6 +353,7 @@
 				AFDB8EAF1D23554A00EEA3B1 /* MainViewController.m in Sources */,
 				AFDB8EE61D23AE0400EEA3B1 /* TweetTableViewModel.m in Sources */,
 				AFDB8EF31D245D7800EEA3B1 /* TwitterSessionManager.m in Sources */,
+				AFDB8EFC1D24705300EEA3B1 /* CustomLabel.m in Sources */,
 				AFDB8EDB1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m in Sources */,
 				AFDB8EF01D24596300EEA3B1 /* MainViewModel.m in Sources */,
 				AFDB8EB51D23554A00EEA3B1 /* TwitterAPIDemo.xcdatamodeld in Sources */,
@@ -351,6 +362,7 @@
 				AFDB8EED1D24542F00EEA3B1 /* TwitterStreamingManager.m in Sources */,
 				AFDB8EE31D23AD0E00EEA3B1 /* TweetTableViewController.m in Sources */,
 				AFDB8EA91D23554A00EEA3B1 /* main.m in Sources */,
+				AFDB8EF91D24703E00EEA3B1 /* CustomButton.m in Sources */,
 				AFDB8EDE1D23912800EEA3B1 /* StreamingTweetModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

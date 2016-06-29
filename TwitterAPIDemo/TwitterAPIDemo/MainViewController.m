@@ -26,7 +26,9 @@
         if (!success) {
             [CustomAlertController showCancelAlertController:@"error" message:errorMessage target:self];
         } else {
-            [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
+            });
         }
     }];
     

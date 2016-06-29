@@ -18,6 +18,8 @@
 
 @implementation TweetTableViewController
 
+#pragma mark - viewController lifeCycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -26,9 +28,9 @@
     [self.viewModel beginReceivingData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.viewModel stopReceivingData];
+    [self.viewModel removeObserver:self forKeyPath:@"tweetArray"];
 }
 
 #pragma mark - Table view data source
@@ -49,10 +51,15 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if (self.viewModel.tweetArray.count > 0) {
+    if ([keyPath isEqualToString:@"tweetArray"] && self.viewModel.tweetArray.count > 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.viewModel.tweetArray.count - 1 inSection:0];
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

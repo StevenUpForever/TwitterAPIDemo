@@ -14,5 +14,6 @@
 @property (nonatomic, copy) NSArray<TWTRTweet *> *tweetArray;
 
 - (void)beginReceivingData;
+- (void)stopReceivingData;
 
 @end

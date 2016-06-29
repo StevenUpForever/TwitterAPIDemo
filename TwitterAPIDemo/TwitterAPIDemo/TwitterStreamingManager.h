@@ -32,6 +32,8 @@
 
 - (void)loadTWTRSession: (TWTRSession *)session;
 
+- (void)cancelSession;
+
 - (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type;
 
 @end

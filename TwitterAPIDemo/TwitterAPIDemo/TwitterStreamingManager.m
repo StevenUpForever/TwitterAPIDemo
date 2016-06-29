@@ -10,6 +10,13 @@
 #import "StreamingTweetModel.h"
 #import <TwitterCore/TwitterCore.h>
 
+@interface TwitterStreamingManager()
+
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) NSURLSessionDataTask *dataTask;
+
+@end
+
 @implementation TwitterStreamingManager
 
 + (TwitterStreamingManager *)sharedManager {
@@ -26,6 +33,7 @@
     self = [super init];
     if (self) {
         _configuration = [[TwitterStreamingConfiguration alloc]init];
+        _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
     }
     return self;
 }
@@ -61,9 +69,8 @@
                 //                NSLog(@"%@", account.userFullName);
                 SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
                 [request setAccount:account];
-                NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
-                NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[request preparedURLRequest]];
-                [dataTask resume];
+                self.dataTask = [self.session dataTaskWithRequest:[request preparedURLRequest]];
+                [self.dataTask resume];
             } else {
                 if ([self.streamingDelegate respondsToSelector:@selector(didFailedConnectToTwitter:error:)]) {
                     [self.streamingDelegate didFailedConnectToTwitter:@"No Twitter account available" error:nil];
@@ -83,6 +90,11 @@
             [self.streamingDelegate didReceiveModelData:model];
         });
     }
+}
+
+- (void)cancelSession {
+    [self.dataTask cancel];
+    [self.session finishTasksAndInvalidate];
 }
 
 @end
