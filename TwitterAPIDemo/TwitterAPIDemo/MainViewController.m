@@ -20,11 +20,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *followTextField;
 @property (weak, nonatomic) IBOutlet UITextField *trackTextField;
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+
+//Container view contains all parameters textFields which will be hidden when source is not filter
+
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
 @implementation MainViewController
+
+//Check twitter availability in viewDidLoad and submit parameters
 
 - (void)viewDidLoad {
     [super viewDidLoad];

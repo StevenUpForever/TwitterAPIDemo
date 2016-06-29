@@ -64,6 +64,8 @@
     }];
 }
 
+//Create related parameter dictionary and set it along with type to a new Configuration object and dispatch it to sharedInstance of streamingManagerObject
+
 - (void)createStreamingManagerConfigurationWithSourceTitle: (NSString *)title follow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations {
     NSDictionary *parameters = [TwitterStreamingConfiguration postParameterWithFollow:follow track:track locations:locations];
     self.streamingManager.configuration = [[TwitterStreamingConfiguration alloc]initWithType:[self SourceURLChooseWithTitle:title] parameters:parameters account:self.account];

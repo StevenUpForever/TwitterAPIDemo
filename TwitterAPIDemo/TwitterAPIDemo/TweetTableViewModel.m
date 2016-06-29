@@ -47,6 +47,8 @@
             NSMutableArray<TWTRTweet *> *mutableArray = [self.tweetArray mutableCopy];
             if (tweet) {
                 [mutableArray addObject:tweet];
+            } else {
+                
             }
             self.tweetArray = mutableArray;
             NSLog(@"%@", tweet);
