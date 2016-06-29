@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TwitterStreamingConfiguration.h"
 
 @protocol StreamingAPIDelegate <NSObject>
 
@@ -18,5 +19,9 @@
 @interface TwitterStreamingAPIManager : NSObject<NSURLSessionDataDelegate>
 
 @property (weak, nonatomic) id<StreamingAPIDelegate> streamingDelegate;
+
+@property (nonatomic) TwitterStreamingConfiguration *configuration;
+
+- (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type;
 
 @end

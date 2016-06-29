@@ -12,7 +12,16 @@
 
 @implementation TwitterStreamingAPIManager
 
-- (void)createStreamingConnectionToTwitterWithType: (streamingAPIType)type {
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _configuration = [[TwitterStreamingConfiguration alloc]init];
+    }
+    return self;
+}
+
+- (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type {
     ACAccountStore *store = [[ACAccountStore alloc]init];
     ACAccountType *twitterAccountType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
@@ -33,26 +42,14 @@
         } else {
             NSArray *accountArray = [store accountsWithAccountType:twitterAccountType];
             if (accountArray.count > 0) {
+                
                 ACAccount *account = [accountArray lastObject];
-                NSURL *url = [NSURL URLWithString:@"https://stream.twitter.com/1.1/statuses/filter.json"];
-                NSDictionary *params = @{@"track" : @"twitter"};
-                
-                SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
-                                                        requestMethod:SLRequestMethodPOST
-                                                                  URL:url
-                                                           parameters:params];
-                
+                SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
                 [request setAccount:account];
                 
-                // Once we have the authenticated request prepared, we launch the session
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Connection");
-                    //                        self.connection = [NSURLConnection connectionWithRequest:[request preparedURLRequest] delegate:self];
-                    //                        [self.connection start];
-                    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
-                    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[request preparedURLRequest]];
-                    [dataTask resume];
-                });
+                NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
+                NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[request preparedURLRequest]];
+                [dataTask resume];
             } else {
                 if ([self.streamingDelegate respondsToSelector:@selector(didFailedConnectToTwitter:error:)]) {
                     [self.streamingDelegate didFailedConnectToTwitter:@"No Twitter account available" error:nil];
@@ -62,14 +59,9 @@
     }];
 }
 
-#pragma mark - private methods
-
-- (NSURLRequest *)configureURLRequestWithType: (streamingAPIType)type {
-    
-}
-
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    
+    id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSLog(@"%@", dict);
 }
 
 @end
