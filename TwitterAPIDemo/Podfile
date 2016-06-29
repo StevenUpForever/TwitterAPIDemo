@@ -1,0 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'TwitterAPIDemo' do
+pod 'Fabric'
+pod 'TwitterKit'
+pod 'TwitterCore'
+end

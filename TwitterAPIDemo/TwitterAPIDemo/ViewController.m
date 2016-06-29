@@ -20,7 +20,7 @@
     
     TwitterStreamingAPIManager *manager = [[TwitterStreamingAPIManager alloc]init];
     NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"girl" locations:nil delimited:NO warnings:NO];
-    [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];
+    [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIUserStreams];
     
 }
 
