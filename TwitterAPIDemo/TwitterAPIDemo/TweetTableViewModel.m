@@ -8,7 +8,7 @@
 
 #import "TweetTableViewModel.h"
 #import "StreamingTweetModel.h"
-#import "TwitterStreamingAPIManager.h"
+#import "TwitterStreamingManager.h"
 #import <TwitterKit/TwitterKit.h>
 
 @interface TweetTableViewModel()<StreamingAPIDelegate>
@@ -27,7 +27,7 @@
 }
 
 - (void)beginReceivingData {
-    TwitterStreamingAPIManager *manager = [[TwitterStreamingAPIManager alloc]init];
+    TwitterStreamingManager *manager = [[TwitterStreamingManager alloc]init];
     manager.streamingDelegate = self;
     NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"NBA" locations:nil delimited:NO warnings:NO];
     [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];

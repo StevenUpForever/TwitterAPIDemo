@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TwitterStreamingAPIManager.h"
+#import "TwitterStreamingManager.h"
 
 @interface ViewController ()
 

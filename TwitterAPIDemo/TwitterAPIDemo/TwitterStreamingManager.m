@@ -1,17 +1,17 @@
 //
-//  TwitterStreamingAPIManager.m
+//  TwitterStreamingManager.m
 //  TwitterAPIDemo
 //
-//  Created by Chengzhi Jia on 6/28/16.
+//  Created by Chengzhi Jia on 6/29/16.
 //  Copyright © 2016 ChengzhiJia. All rights reserved.
 //
 
-#import "TwitterStreamingAPIManager.h"
+#import "TwitterStreamingManager.h"
 #import "StreamingTweetModel.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 
-@implementation TwitterStreamingAPIManager
+@implementation TwitterStreamingManager
 
 - (instancetype)init
 {
@@ -45,7 +45,7 @@
             if (accountArray.count > 0) {
                 
                 ACAccount *account = [accountArray lastObject];
-//                NSLog(@"%@", account.userFullName);
+                //                NSLog(@"%@", account.userFullName);
                 SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
                 [request setAccount:account];
                 NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
@@ -62,7 +62,7 @@
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//    NSLog(@"%@", dict);
+    //    NSLog(@"%@", dict);
     StreamingTweetModel *model = [[StreamingTweetModel alloc]init];
     [model loadTweetObject:dict];
     if ([self.streamingDelegate respondsToSelector:@selector(didReceiveModelData:)]) {

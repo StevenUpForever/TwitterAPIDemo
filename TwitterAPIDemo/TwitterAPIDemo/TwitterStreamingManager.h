@@ -1,12 +1,12 @@
 //
-//  TwitterStreamingAPIManager.h
+//  TwitterStreamingManager.h
 //  TwitterAPIDemo
 //
-//  Created by Chengzhi Jia on 6/28/16.
+//  Created by Chengzhi Jia on 6/29/16.
 //  Copyright © 2016 ChengzhiJia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TwitterManager.h"
 #import "TwitterStreamingConfiguration.h"
 
 @class StreamingTweetModel;
@@ -18,8 +18,7 @@
 - (void)didReceiveModelData: (StreamingTweetModel *)model;
 
 @end
-
-@interface TwitterStreamingAPIManager : NSObject<NSURLSessionDataDelegate>
+@interface TwitterStreamingManager : TwitterManager<NSURLSessionDataDelegate>
 
 @property (weak, nonatomic) id<StreamingAPIDelegate> streamingDelegate;
 
