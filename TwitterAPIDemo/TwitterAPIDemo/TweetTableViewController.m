@@ -49,9 +49,9 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-//    NSLog(@"%@", self.viewModel.tweetArray.lastObject.text);
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.viewModel.tweetArray.count - 1 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView reloadData];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.viewModel.tweetArray.count - 1 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 
 @end

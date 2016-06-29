@@ -65,7 +65,9 @@
     StreamingTweetModel *model = [[StreamingTweetModel alloc]init];
     [model loadTweetObject:dict];
     if ([self.streamingDelegate respondsToSelector:@selector(didReceiveModelData:)]) {
-        [self.streamingDelegate didReceiveModelData:model];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.streamingDelegate didReceiveModelData:model];
+        });
     }
 }
 

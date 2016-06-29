@@ -34,12 +34,13 @@
 }
 
 - (void)didReceiveModelData:(StreamingTweetModel *)model {
-    TWTRAPIClient *client = [[TWTRAPIClient alloc]initWithUserID:@"28663631"];
+    TWTRAPIClient *client = [[TWTRAPIClient alloc]init];
     [client loadTweetWithID:model.idStr completion:^(TWTRTweet * _Nullable tweet, NSError * _Nullable error) {
         NSMutableArray<TWTRTweet *> *mutableArray = [self.tweetArray mutableCopy];
-        [mutableArray addObject:tweet];
+        if (tweet) {
+            [mutableArray addObject:tweet];
+        }
         self.tweetArray = mutableArray;
-        NSLog(@"%i", self.tweetArray.count);
     }];
 }
 
