@@ -27,7 +27,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public API with filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-mr-VLF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public API with filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-mr-VLF" customClass="CustomLabel">
                                 <rect key="frame" x="119" y="72" width="461" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nkB-jk-WLV"/>
@@ -35,6 +35,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cl0-Gk-Apq">
                                 <rect key="frame" x="20" y="120" width="560" height="300"/>
@@ -92,9 +100,22 @@
                                     <constraint firstItem="GtL-rE-VN4" firstAttribute="leading" secondItem="Cl0-Gk-Apq" secondAttribute="leading" constant="8" id="tYd-77-OAN"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2S-Yg-yK5">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2S-Yg-yK5" customClass="CustomButton">
                                 <rect key="frame" x="480" y="530" width="100" height="50"/>
-                                <state key="normal" title="Submit"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ab3-Sm-nQO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -112,6 +133,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cjh-Ol-66a"/>
                     <connections>
+                        <outlet property="followTextField" destination="mqM-h5-5cO" id="eL0-NH-2Ei"/>
+                        <outlet property="locationTextField" destination="MmQ-ZS-lTy" id="ers-fb-iNu"/>
+                        <outlet property="sourceLabel" destination="ThC-mr-VLF" id="PIi-AV-aV1"/>
+                        <outlet property="trackTextField" destination="wV5-tY-usy" id="2tE-0d-9Uf"/>
                         <segue destination="H2s-AZ-Wg6" kind="show" identifier="TWTRAPIClient" id="snP-CJ-xaV"/>
                     </connections>
                 </viewController>
