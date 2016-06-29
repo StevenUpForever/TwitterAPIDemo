@@ -15,6 +15,10 @@
 		AFDB8EB71D23554A00EEA3B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDB8EB61D23554A00EEA3B1 /* Assets.xcassets */; };
 		AFDB8EBA1D23554A00EEA3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDB8EB81D23554A00EEA3B1 /* LaunchScreen.storyboard */; };
 		AFDB8EC51D23554A00EEA3B1 /* TwitterAPIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EC41D23554A00EEA3B1 /* TwitterAPIDemoTests.m */; };
+		AFDB8ED01D2355AF00EEA3B1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDB8ECF1D2355AF00EEA3B1 /* Social.framework */; };
+		AFDB8ED21D2355C000EEA3B1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDB8ED11D2355C000EEA3B1 /* Accounts.framework */; };
+		AFDB8ED81D23563E00EEA3B1 /* TwitterStreamingAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8ED71D23563E00EEA3B1 /* TwitterStreamingAPIManager.m */; };
+		AFDB8EDB1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDB8EDA1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,12 @@
 		AFDB8EC01D23554A00EEA3B1 /* TwitterAPIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterAPIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDB8EC41D23554A00EEA3B1 /* TwitterAPIDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwitterAPIDemoTests.m; sourceTree = "<group>"; };
 		AFDB8EC61D23554A00EEA3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFDB8ECF1D2355AF00EEA3B1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		AFDB8ED11D2355C000EEA3B1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AFDB8ED61D23563E00EEA3B1 /* TwitterStreamingAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterStreamingAPIManager.h; sourceTree = "<group>"; };
+		AFDB8ED71D23563E00EEA3B1 /* TwitterStreamingAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterStreamingAPIManager.m; sourceTree = "<group>"; };
+		AFDB8ED91D2361EC00EEA3B1 /* TwitterStreamingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterStreamingConfiguration.h; sourceTree = "<group>"; };
+		AFDB8EDA1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterStreamingConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFDB8ED21D2355C000EEA3B1 /* Accounts.framework in Frameworks */,
+				AFDB8ED01D2355AF00EEA3B1 /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +77,8 @@
 		AFDB8E9B1D23554A00EEA3B1 = {
 			isa = PBXGroup;
 			children = (
+				AFDB8ED11D2355C000EEA3B1 /* Accounts.framework */,
+				AFDB8ECF1D2355AF00EEA3B1 /* Social.framework */,
 				AFDB8EA61D23554A00EEA3B1 /* TwitterAPIDemo */,
 				AFDB8EC31D23554A00EEA3B1 /* TwitterAPIDemoTests */,
 				AFDB8EA51D23554A00EEA3B1 /* Products */,
@@ -87,6 +101,10 @@
 				AFDB8EAB1D23554A00EEA3B1 /* AppDelegate.m */,
 				AFDB8EAD1D23554A00EEA3B1 /* ViewController.h */,
 				AFDB8EAE1D23554A00EEA3B1 /* ViewController.m */,
+				AFDB8ED61D23563E00EEA3B1 /* TwitterStreamingAPIManager.h */,
+				AFDB8ED71D23563E00EEA3B1 /* TwitterStreamingAPIManager.m */,
+				AFDB8ED91D2361EC00EEA3B1 /* TwitterStreamingConfiguration.h */,
+				AFDB8EDA1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m */,
 				AFDB8EB01D23554A00EEA3B1 /* Main.storyboard */,
 				AFDB8EB61D23554A00EEA3B1 /* Assets.xcassets */,
 				AFDB8EB81D23554A00EEA3B1 /* LaunchScreen.storyboard */,
@@ -215,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFDB8EAF1D23554A00EEA3B1 /* ViewController.m in Sources */,
+				AFDB8ED81D23563E00EEA3B1 /* TwitterStreamingAPIManager.m in Sources */,
+				AFDB8EDB1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m in Sources */,
 				AFDB8EB51D23554A00EEA3B1 /* TwitterAPIDemo.xcdatamodeld in Sources */,
 				AFDB8EAC1D23554A00EEA3B1 /* AppDelegate.m in Sources */,
 				AFDB8EA91D23554A00EEA3B1 /* main.m in Sources */,
