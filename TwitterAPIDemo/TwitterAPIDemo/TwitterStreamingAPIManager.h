@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "TwitterStreamingConfiguration.h"
 
+@class StreamingTweetModel;
 @protocol StreamingAPIDelegate <NSObject>
 
 @optional
 - (void)didFailedConnectToTwitter: (NSString *)errorMessage error: (NSError *)error;
+- (void)didReceiveModelData: (StreamingTweetModel *)model;
 
 @end
 

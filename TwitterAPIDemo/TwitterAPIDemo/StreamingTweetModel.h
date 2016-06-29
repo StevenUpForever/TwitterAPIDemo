@@ -19,7 +19,9 @@
 @property (nonatomic, copy) NSString *geo;
 @property (nonatomic, copy) NSString *idStr;
 @property (nonatomic, assign) NSUInteger retweetCount;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *timeStamp;
 
-
+- (void)loadTweetObject: (id)JSONObj;
 
 @end

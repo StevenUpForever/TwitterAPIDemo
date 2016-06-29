@@ -7,6 +7,7 @@
 //
 
 #import "TwitterStreamingAPIManager.h"
+#import "StreamingTweetModel.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 
@@ -46,7 +47,6 @@
                 ACAccount *account = [accountArray lastObject];
                 SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
                 [request setAccount:account];
-                
                 NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
                 NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[request preparedURLRequest]];
                 [dataTask resume];
@@ -62,6 +62,11 @@
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"%@", dict);
+    StreamingTweetModel *model = [[StreamingTweetModel alloc]init];
+    [model loadTweetObject:dict];
+    if ([self.streamingDelegate respondsToSelector:@selector(didReceiveModelData:)]) {
+        [self.streamingDelegate didReceiveModelData:model];
+    }
 }
 
 @end
