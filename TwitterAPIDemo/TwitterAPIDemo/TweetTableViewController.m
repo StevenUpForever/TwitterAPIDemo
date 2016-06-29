@@ -51,8 +51,9 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"tweetArray"] && self.viewModel.tweetArray.count > 0) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.viewModel.tweetArray.count - 1 inSection:0];
+    NSUInteger countNum = self.viewModel.tweetArray.count;
+    if ([keyPath isEqualToString:@"tweetArray"] && countNum > 0 && [self.tableView numberOfRowsInSection:0] < countNum) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:countNum - 1 inSection:0];
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
 }

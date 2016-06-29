@@ -32,13 +32,6 @@
         } else {
             NSArray *accountArray = [store accountsWithAccountType:twitterAccountType];
             if (accountArray.count > 0) {
-                //                ACAccount *account = [accountArray lastObject];
-                //                //                NSLog(@"%@", account.userFullName);
-                //                SLRequest *request = [self.configuration createURLRequestWithParameters:paratemers type:type];
-                //                [request setAccount:account];
-                //                NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
-                //                NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[request preparedURLRequest]];
-                //                [dataTask resume];
                 if (successHandler) {
                     successHandler(YES, accountArray);
                 }

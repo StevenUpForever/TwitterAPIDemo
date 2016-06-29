@@ -50,11 +50,6 @@
     [store requestAccessToAccountsWithType:twitterAccountType options:nil completion:^(BOOL granted, NSError *error) {
         if (error) {
             
-            //Error when trying to enter the twitter account
-            if ([self.streamingDelegate respondsToSelector:@selector(didFailedConnectToTwitter:error:)]) {
-                [self.streamingDelegate didFailedConnectToTwitter:error.localizedDescription error:error];
-            }
-            
         } else if (!granted) {
             
             if ([self.streamingDelegate respondsToSelector:@selector(didFailedConnectToTwitter:error:)]) {

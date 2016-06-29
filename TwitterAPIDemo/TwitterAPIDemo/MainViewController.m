@@ -42,6 +42,8 @@
 
 #pragma mark - private methods
 
+//Common method to check Twitter Account availability when initial the viewController or submit parameters
+
 - (void)viewModelCheckTwitterAndLogin: (BOOL)login {
     [self.viewModel checkTwitterAvailableWithCallBack:^(BOOL success, NSString *errorMessage) {
         if (!success) {
@@ -49,6 +51,7 @@
         } else {
             if (login) {
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    
                     [self performSegueWithIdentifier:@"TWTRAPIClient" sender:self];
                 });
             }

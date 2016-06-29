@@ -100,8 +100,12 @@
                                     <constraint firstItem="GtL-rE-VN4" firstAttribute="leading" secondItem="Cl0-Gk-Apq" secondAttribute="leading" constant="8" id="tYd-77-OAN"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2S-Yg-yK5" customClass="CustomButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2S-Yg-yK5" customClass="CustomButton">
                                 <rect key="frame" x="480" y="530" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="eeX-Wr-CdF"/>
+                                    <constraint firstAttribute="height" constant="50" id="f38-oO-n5r"/>
+                                </constraints>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -120,6 +124,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="a2S-Yg-yK5" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="0Dt-6t-NxQ"/>
                             <constraint firstItem="ThC-mr-VLF" firstAttribute="centerY" secondItem="dhc-OP-yDW" secondAttribute="centerY" id="1wT-Qk-Wud"/>
                             <constraint firstItem="dhc-OP-yDW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="E9n-gb-39V"/>
                             <constraint firstItem="ThC-mr-VLF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="F5u-9G-7qz"/>
@@ -127,6 +132,7 @@
                             <constraint firstItem="Cl0-Gk-Apq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="PLU-mt-1sZ"/>
                             <constraint firstItem="ThC-mr-VLF" firstAttribute="leading" secondItem="dhc-OP-yDW" secondAttribute="trailing" constant="8" id="TgK-mL-Kdc"/>
                             <constraint firstItem="ThC-mr-VLF" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="b7k-m5-Ff9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="a2S-Yg-yK5" secondAttribute="bottom" constant="20" id="hsZ-K3-F3x"/>
                             <constraint firstItem="Cl0-Gk-Apq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="jfa-VK-hVq"/>
                             <constraint firstItem="Cl0-Gk-Apq" firstAttribute="top" secondItem="ThC-mr-VLF" secondAttribute="bottom" constant="8" id="nYK-Pn-2Yv"/>
                         </constraints>
