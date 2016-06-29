@@ -1,13 +1,13 @@
 //
-//  TwitterManager.m
+//  MainViewModel.h
 //  TwitterAPIDemo
 //
 //  Created by Chengzhi Jia on 6/29/16.
 //  Copyright © 2016 ChengzhiJia. All rights reserved.
 //
 
-#import "TwitterManager.h"
+#import <Foundation/Foundation.h>
 
-@implementation TwitterManager
+@interface MainViewModel : NSObject
 
 @end

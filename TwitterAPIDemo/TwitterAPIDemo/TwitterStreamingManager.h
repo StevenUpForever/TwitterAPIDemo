@@ -6,7 +6,7 @@
 //  Copyright © 2016 ChengzhiJia. All rights reserved.
 //
 
-#import "TwitterManager.h"
+#import <Foundation/Foundation.h>
 #import "TwitterStreamingConfiguration.h"
 
 @class StreamingTweetModel;
@@ -18,11 +18,13 @@
 - (void)didReceiveModelData: (StreamingTweetModel *)model;
 
 @end
-@interface TwitterStreamingManager : TwitterManager<NSURLSessionDataDelegate>
+@interface TwitterStreamingManager : NSObject<NSURLSessionDataDelegate>
 
 @property (weak, nonatomic) id<StreamingAPIDelegate> streamingDelegate;
 
 @property (nonatomic) TwitterStreamingConfiguration *configuration;
+
++ (void)checkTwitterAccountAvailabilityWithSuccessHandler: (void(^)(BOOL loggedIn, NSArray *accountArray))successHandler failureHandler: (void(^)(NSString *errorMessage))failureHandler;
 
 - (void)createStreamingConnectionToTwitterWithParameters: (NSDictionary *)paratemers type: (streamingAPIType)type;
 

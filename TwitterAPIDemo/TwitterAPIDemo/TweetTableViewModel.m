@@ -29,7 +29,7 @@
 - (void)beginReceivingData {
     TwitterStreamingManager *manager = [[TwitterStreamingManager alloc]init];
     manager.streamingDelegate = self;
-    NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"NBA" locations:nil delimited:NO warnings:NO];
+    NSDictionary *parameters = [manager.configuration postParameterWithFollow:nil track:@"girl" locations:nil delimited:NO warnings:NO];
     [manager createStreamingConnectionToTwitterWithParameters:parameters type:streamingAPIPublicFilter];
 }
 
