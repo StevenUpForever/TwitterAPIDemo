@@ -54,7 +54,9 @@
     return [TWTRTweetTableViewCell heightForTweet:self.viewModel.tweetArray[indexPath.row] style:TWTRTweetViewStyleCompact width:self.view.bounds.size.width showingActions:YES];
 }
 
-
+- (IBAction)controlDataTask:(UIBarButtonItem *)sender {
+    [self.viewModel setControlButtonStatusWithItem:sender];
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     

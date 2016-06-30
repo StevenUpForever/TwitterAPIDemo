@@ -54,6 +54,16 @@
     [self.session finishTasksAndInvalidate];
 }
 
+//Control dataTask process
+
+- (void)controlDataTaskProcess: (BOOL)currentSuspended {
+    if (currentSuspended) {
+        [self.dataTask resume];
+    } else {
+        [self.dataTask suspend];
+    }
+}
+
 #pragma mark - NSURLSessionDataTask delegate
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {

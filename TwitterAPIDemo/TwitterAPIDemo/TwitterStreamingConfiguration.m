@@ -33,6 +33,8 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
     return self;
 }
 
+//Create parameters Dictionary with defined parameters
+
 + (NSDictionary *)postParameterWithFollow: (NSString *)follow track: (NSString *)track locations: (NSString *)locations {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     if (follow) {
@@ -46,6 +48,8 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
     }
     return parameters;
 }
+
+//Create NSURLRequest object to send via NSURLSession
 
 - (NSURLRequest *)createURLRequest {
     NSString *urlStr;

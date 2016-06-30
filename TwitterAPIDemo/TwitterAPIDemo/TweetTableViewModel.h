@@ -6,7 +6,7 @@
 //  Copyright © 2016 ChengzhiJia. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class TWTRTweet;
 @interface TweetTableViewModel : NSObject
@@ -15,5 +15,7 @@
 
 - (void)beginReceivingData;
 - (void)stopReceivingData;
+
+- (void)setControlButtonStatusWithItem: (UIBarButtonItem *)item;
 
 @end

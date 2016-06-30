@@ -183,7 +183,13 @@
                             <outlet property="delegate" destination="H2s-AZ-Wg6" id="Acj-c7-Wa3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tweets" id="UEQ-nJ-ail"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="UEQ-nJ-ail">
+                        <barButtonItem key="rightBarButtonItem" title="Stop" id="scG-dr-Hc8">
+                            <connections>
+                                <action selector="controlDataTask:" destination="H2s-AZ-Wg6" id="1tL-Hq-u23"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzw-qJ-gSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

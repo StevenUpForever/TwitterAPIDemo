@@ -38,6 +38,16 @@
     [self.manager cancelSession];
 }
 
+- (void)setControlButtonStatusWithItem: (UIBarButtonItem *)item {
+    if ([item.title isEqualToString:@"Stop"]) {
+        [self.manager controlDataTaskProcess:NO];
+        [item setTitle:@"Resume"];
+    } else {
+        [self.manager controlDataTaskProcess:YES];
+        [item setTitle:@"Stop"];
+    }
+}
+
 #pragma mark - StreamingAPIDelegate
 
 - (void)didReceiveModelData:(StreamingTweetModel *)model {
