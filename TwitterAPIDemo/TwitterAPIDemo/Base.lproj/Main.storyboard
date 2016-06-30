@@ -160,7 +160,7 @@
             </objects>
             <point key="canvasLocation" x="1987" y="-452"/>
         </scene>
-        <!--Tweet Table View Controller-->
+        <!--Tweets-->
         <scene sceneID="Y64-cY-kE9">
             <objects>
                 <tableViewController id="H2s-AZ-Wg6" customClass="TweetTableViewController" sceneMemberID="viewController">
@@ -183,6 +183,7 @@
                             <outlet property="delegate" destination="H2s-AZ-Wg6" id="Acj-c7-Wa3"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Tweets" id="UEQ-nJ-ail"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzw-qJ-gSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -43,12 +43,18 @@
 - (void)didReceiveModelData:(StreamingTweetModel *)model {
     TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
     if (model.idStr) {
+        
+        //Load TWTRTweet object depends on id string got, and append it in data source array for dataSource of TableView
+        
         [client loadTweetWithID:model.idStr completion:^(TWTRTweet * _Nullable tweet, NSError * _Nullable error) {
             NSMutableArray<TWTRTweet *> *mutableArray = [self.tweetArray mutableCopy];
             if (tweet) {
                 [mutableArray addObject:tweet];
             } else {
                 
+            }
+            if (error) {
+                NSLog(@"%@", error.localizedDescription);
             }
             self.tweetArray = mutableArray;
             NSLog(@"%@", tweet);

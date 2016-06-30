@@ -19,6 +19,8 @@
 
 @implementation TwitterStreamingManager
 
+//Signalton which to share the connection among different viewControllers
+
 + (TwitterStreamingManager *)sharedManager {
     static dispatch_once_t onceToken;
     static TwitterStreamingManager *manager;
@@ -38,14 +40,27 @@
     return self;
 }
 
+//Create dataTask and begin
+
 - (void)createStreamingConnectionToTwitter {
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:[self.configuration createURLRequest]];
-    [dataTask resume];
+    self.dataTask = [self.session dataTaskWithRequest:[self.configuration createURLRequest]];
+    [self.dataTask resume];
 }
 
+//Invalid dataTask and session when used in viewWillDisappear
+
+- (void)cancelSession {
+    [self.dataTask cancel];
+    [self.session finishTasksAndInvalidate];
+}
+
+#pragma mark - NSURLSessionDataTask delegate
+
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
+    
+    //Load JSON data into StreamingTweetModel Object and send delegate method
+    
     id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    //    NSLog(@"%@", dict);
     StreamingTweetModel *model = [[StreamingTweetModel alloc]init];
     [model loadTweetObject:dict];
     if ([self.streamingDelegate respondsToSelector:@selector(didReceiveModelData:)]) {
@@ -53,11 +68,6 @@
             [self.streamingDelegate didReceiveModelData:model];
         });
     }
-}
-
-- (void)cancelSession {
-    [self.dataTask cancel];
-    [self.session finishTasksAndInvalidate];
 }
 
 @end

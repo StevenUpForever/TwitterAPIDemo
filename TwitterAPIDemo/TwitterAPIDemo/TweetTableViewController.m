@@ -23,10 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Add KVO and begin receive data from connection
+    
     self.viewModel = [[TweetTableViewModel alloc]init];
     [self.viewModel addObserver:self forKeyPath:@"tweetArray" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     [self.viewModel beginReceivingData];
 }
+
+//Remove KVO and stop receive data when the view will dismiss
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.viewModel stopReceivingData];
@@ -50,7 +54,12 @@
     return [TWTRTweetTableViewCell heightForTweet:self.viewModel.tweetArray[indexPath.row] style:TWTRTweetViewStyleCompact width:self.view.bounds.size.width showingActions:YES];
 }
 
+
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    
+    //When tweetArray is not empty and new element added, insert a new row
+    
     NSUInteger countNum = self.viewModel.tweetArray.count;
     if ([keyPath isEqualToString:@"tweetArray"] && countNum > 0 && [self.tableView numberOfRowsInSection:0] < countNum) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:countNum - 1 inSection:0];
