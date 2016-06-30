@@ -33,6 +33,8 @@
 //Remove KVO and stop receive data when the view will dismiss
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
     [self.viewModel stopReceivingData];
     [self.viewModel removeObserver:self forKeyPath:@"tweetArray"];
 }

@@ -59,6 +59,7 @@ NSString * const kStreamingUserStreams = @"https://userstream.twitter.com/1.1/us
             break;
         case streamingAPIPublicSample:
             urlStr = kStreamingPublicSample;
+            break;
         default:
             urlStr = kStreamingUserStreams;
             break;
