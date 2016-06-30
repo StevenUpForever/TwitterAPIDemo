@@ -40,6 +40,8 @@
     return self;
 }
 
+#pragma mark - Connection lifeCycle
+
 //Create dataTask and begin
 
 - (void)createStreamingConnectionToTwitter {
@@ -73,11 +75,15 @@
     id dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     StreamingTweetModel *model = [[StreamingTweetModel alloc]init];
     [model loadTweetObject:dict];
+    
     if ([self.streamingDelegate respondsToSelector:@selector(didReceiveModelData:)]) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [self.streamingDelegate didReceiveModelData:model];
+            
         });
     }
+    
 }
 
 @end

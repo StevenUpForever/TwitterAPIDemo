@@ -194,18 +194,9 @@
 		AFDB8EFF1D24795100EEA3B1 /* Tweet result */ = {
 			isa = PBXGroup;
 			children = (
-				AFDB8EE11D23AD0E00EEA3B1 /* TweetTableViewController.h */,
-				AFDB8EE21D23AD0E00EEA3B1 /* TweetTableViewController.m */,
+				AFDB8F0A1D24A50F00EEA3B1 /* View */,
 				AFDB8F021D24799700EEA3B1 /* viewModel */,
-				AFDB8EE41D23AE0400EEA3B1 /* TweetTableViewModel.h */,
-				AFDB8EE51D23AE0400EEA3B1 /* TweetTableViewModel.m */,
 				AFDB8F041D2479CC00EEA3B1 /* Model */,
-				AFDB8EEB1D24542F00EEA3B1 /* TwitterStreamingManager.h */,
-				AFDB8EEC1D24542F00EEA3B1 /* TwitterStreamingManager.m */,
-				AFDB8ED91D2361EC00EEA3B1 /* TwitterStreamingConfiguration.h */,
-				AFDB8EDA1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m */,
-				AFDB8EDC1D23912800EEA3B1 /* StreamingTweetModel.h */,
-				AFDB8EDD1D23912800EEA3B1 /* StreamingTweetModel.m */,
 			);
 			name = "Tweet result";
 			sourceTree = "<group>";
@@ -213,8 +204,7 @@
 		AFDB8F001D24796F00EEA3B1 /* Keywords configure */ = {
 			isa = PBXGroup;
 			children = (
-				AFDB8EAD1D23554A00EEA3B1 /* MainViewController.h */,
-				AFDB8EAE1D23554A00EEA3B1 /* MainViewController.m */,
+				AFDB8F0B1D24A51900EEA3B1 /* View */,
 				AFDB8F011D24798B00EEA3B1 /* viewModel */,
 				AFDB8F051D2479E200EEA3B1 /* Model */,
 			);
@@ -233,6 +223,8 @@
 		AFDB8F021D24799700EEA3B1 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AFDB8EE41D23AE0400EEA3B1 /* TweetTableViewModel.h */,
+				AFDB8EE51D23AE0400EEA3B1 /* TweetTableViewModel.m */,
 			);
 			name = viewModel;
 			sourceTree = "<group>";
@@ -240,6 +232,10 @@
 		AFDB8F041D2479CC00EEA3B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFDB8EEB1D24542F00EEA3B1 /* TwitterStreamingManager.h */,
+				AFDB8EEC1D24542F00EEA3B1 /* TwitterStreamingManager.m */,
+				AFDB8EDC1D23912800EEA3B1 /* StreamingTweetModel.h */,
+				AFDB8EDD1D23912800EEA3B1 /* StreamingTweetModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -249,8 +245,28 @@
 			children = (
 				AFDB8EF11D245D7800EEA3B1 /* TwitterSessionManager.h */,
 				AFDB8EF21D245D7800EEA3B1 /* TwitterSessionManager.m */,
+				AFDB8ED91D2361EC00EEA3B1 /* TwitterStreamingConfiguration.h */,
+				AFDB8EDA1D2361EC00EEA3B1 /* TwitterStreamingConfiguration.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		AFDB8F0A1D24A50F00EEA3B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFDB8EE11D23AD0E00EEA3B1 /* TweetTableViewController.h */,
+				AFDB8EE21D23AD0E00EEA3B1 /* TweetTableViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AFDB8F0B1D24A51900EEA3B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFDB8EAD1D23554A00EEA3B1 /* MainViewController.h */,
+				AFDB8EAE1D23554A00EEA3B1 /* MainViewController.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		BA08F5DB2F704F24CDDF4F24 /* Frameworks */ = {

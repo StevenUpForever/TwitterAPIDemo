@@ -38,6 +38,8 @@
     [self.manager cancelSession];
 }
 
+//Resume/suspend DataTask depends on the UIBarbuttonItem Action
+
 - (void)setControlButtonStatusWithItem: (UIBarButtonItem *)item {
     if ([item.title isEqualToString:@"Stop"]) {
         [self.manager controlDataTaskProcess:NO];
