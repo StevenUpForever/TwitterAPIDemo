@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "TwitterStreamingManager.h"
+#import "MainViewModel.h"
 
 @interface TwitterAPIDemoTests : XCTestCase
+
+@property (nonatomic) MainViewModel *mainViewModel;
 
 @end
 
@@ -16,6 +20,7 @@
 
 - (void)setUp {
     [super setUp];
+    self.mainViewModel = [[MainViewModel alloc]init];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -35,5 +40,19 @@
         // Put the code you want to measure the time of here.
     }];
 }
+
+- (void)testSingleton {
+    XCTAssertEqualObjects([TwitterStreamingManager sharedManager], [TwitterStreamingManager sharedManager], @"Two object should be the same memory address");
+}
+
+- (void)testConfigurationValidation {
+    [self.mainViewModel createStreamingManagerConfigurationWithSourceTitle:@"Public API with Samples" follow:nil track:@"test" locations:nil];
+    TwitterStreamingManager *sharedManager = [TwitterStreamingManager sharedManager];
+    XCTAssertNotNil(sharedManager.configuration, @"After setup, configuration shouldn't be nil");
+    XCTAssertNotNil([sharedManager.configuration createURLRequest], @"URL requet should be valid");
+    XCTAssertTrue([[sharedManager.configuration createURLRequest] isKindOfClass:[NSURLRequest class]], @"configuration request should be kind of NSURLRequest");
+}
+
+
 
 @end
