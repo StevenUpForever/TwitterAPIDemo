@@ -26,9 +26,10 @@
 
 + (TwitterStreamingManager *)sharedManager;
 
-- (void)cancelSession;
-- (void)controlDataTaskProcess: (BOOL)currentSuspended;
+/* Datatask and Connection lifeCycle management */
 
 - (void)createStreamingConnectionToTwitter;
+- (void)cancelSession;
+- (void)controlDataTaskProcess: (BOOL)currentSuspended;
 
 @end

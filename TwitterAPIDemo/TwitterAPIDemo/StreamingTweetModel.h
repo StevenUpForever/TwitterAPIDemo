@@ -10,17 +10,17 @@
 
 @interface StreamingTweetModel : NSObject
 
-@property (nonatomic, copy) NSString *contributors;
-@property (nonatomic, copy) NSString *coordinates;
-@property (nonatomic, copy) NSString *createDate;
-@property (nonatomic, assign) NSUInteger favouriteCount;
-@property (nonatomic, assign) NSUInteger favourited;
-@property (nonatomic, copy) NSString *filterLevel;
-@property (nonatomic, copy) NSString *geo;
-@property (nonatomic, copy) NSString *idStr;
-@property (nonatomic, assign) NSUInteger retweetCount;
-@property (nonatomic, copy) NSString *text;
-@property (nonatomic, copy) NSString *timeStamp;
+@property (nonatomic, copy, readonly) NSString *contributors;
+@property (nonatomic, copy, readonly) NSString *coordinates;
+@property (nonatomic, copy, readonly) NSString *createDate;
+@property (nonatomic, assign, readonly) NSUInteger favouriteCount;
+@property (nonatomic, assign, readonly) NSUInteger favourited;
+@property (nonatomic, copy, readonly) NSString *filterLevel;
+@property (nonatomic, copy, readonly) NSString *geo;
+@property (nonatomic, copy, readonly) NSString *idStr;
+@property (nonatomic, assign, readonly) NSUInteger retweetCount;
+@property (nonatomic, copy, readonly) NSString *text;
+@property (nonatomic, copy, readonly) NSString *timeStamp;
 
 - (void)loadTweetObject: (id)JSONObj;
 
